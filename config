@@ -33,7 +33,7 @@ font pango:FontAwesome 12
 
 # 新窗口边框默认样式
 new_window none
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 1
 # for_window [class="Gnome-terminal"] border 1pixel
 # for_window [class="urxvt"] border 1pixel
 
@@ -46,8 +46,8 @@ for_window [class="^.*"] border pixel 0
 # gaps bottom <px>
 # gaps left <px>
 # smart_gaps on
-gaps outer 10
-gaps inner 10
+#gaps outer 10
+#gaps inner 10
 
 # 部分程序默认布局
 for_window [class="TeamViewer"] floating enable
@@ -55,6 +55,7 @@ for_window [class="(?i)eog"] floating enable
 for_window [class="Gnome-font-viewer"] floating enable
 for_window [class="Gpick"] floating enable
 for_window [class="mpv"] floating enable
+for_window [class="netease-cloud-music"] floating enable
 for_window [class="Gvim" title="I3_FLOAT_WINDOW"] floating enable
 for_window [class="Lxterminal" title="I3_FLOAT_WINDOW"] floating enable
 
@@ -287,8 +288,8 @@ bindsym $mod+a exec xfce4-appfinder
 # neovim
 bindsym $mod+v exec gnome-terminal -- nvim
 
-# thunar
-bindsym $mod+t exec thunar
+# pcmanfm
+bindsym $mod+t exec pcmanfm
 
 # 启动一个浮动并默认进入插入模式的vim,方便用来写一些便笺
 bindsym $mod+Shift+v exec lxterminal -t I3_FLOAT_WINDOW -e "nvim -c 'let g:startify_disable_at_vimenter = 1' -c 'startinsert' -c 'setlocal buftype=nofile' -c 'setlocal bufhidden=hide' -c 'setlocal noswapfile'"
@@ -300,6 +301,9 @@ bindsym $mod+Shift+v exec lxterminal -t I3_FLOAT_WINDOW -e "nvim -c 'let g:start
 # autostart {{{1
 # exec表示只有启动i3时会启动
 # exec_always表示每次重启i3都会启动
+
+# 需要开机启动的软件
+exec --no-startup-id sh ~/.config/i3/autostart.sh
 
 # 透明
 exec_always --no-startup-id compton -b #开机自启
@@ -324,9 +328,6 @@ exec --no-startup-id dropbox start
 
 # 设置背景图片
 exec_always --no-startup-id feh --bg-scale ~/.config/i3/background.png
-
-# 其他需要开机启动的软件
-exec --no-startup-id sh ~/.config/i3/autostart.sh
 
 # }}}
 
