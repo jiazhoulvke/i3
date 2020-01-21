@@ -99,6 +99,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec lxterminal
+bindsym Ctrl+mod1+t exec lxterminal
 #bindsym $mod+Return exec i3-sensible-terminal
 #bindsym $mod+Return exec gnome-terminal
 #bindsym $mod+Return exec terminology #一个效果超炫的终端
@@ -283,10 +284,16 @@ mode "$title_mode" {
 # programs {{{2
 
 # xfce4-appfinder
-bindsym $mod+a exec xfce4-appfinder
+# bindsym $mod+a exec xfce4-appfinder
 
 # neovim
-bindsym $mod+v exec gnome-terminal -- nvim
+# bindsym $mod+v exec gnome-terminal -- nvim
+
+# 切换触摸板状态
+bindsym $mod+F8 exec ~/.config/i3/scripts/toggle_touchpad.sh
+
+# gvim
+bindsym $mod+v exec gvim
 
 # pcmanfm
 bindsym $mod+t exec pcmanfm
@@ -320,11 +327,11 @@ exec --no-startup-id blueman-applet
 # 剪贴板
 exec clipit
 
-# cerebro
-exec --no-startup-id cerebro
+# utools
+exec --no-startup-id utools
 
-# dropbox
-exec --no-startup-id dropbox start
+# seafile
+exec --no-startup-id seafile-applet
 
 # 设置背景图片
 exec_always --no-startup-id feh --bg-scale ~/.config/i3/background.png
@@ -335,20 +342,20 @@ exec_always --no-startup-id feh --bg-scale ~/.config/i3/background.png
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    i3bar_command i3bar -t
+    # i3bar_command i3bar -t
     position top
-    height 24
-    colors {
-        background #33333333
-	statusline #ffffff
-	separator #666666
+    # height 24
+    # colors {
+    #     background #33333333
+	#     statusline #ffffff
+	#     separator #666666
 
-	focused_workspace  #4c7899 #285577 #ffffff
-	active_workspace   #333333 #5f676a #ffffff
-	inactive_workspace #333333 #222222 #888888
-	urgent_workspace   #2f343a #900000 #ffffff
-    }
-    font pango: IBM 3270 12
+	#     focused_workspace  #4c7899 #285577 #ffffff
+	#     active_workspace   #333333 #5f676a #ffffff
+	#     inactive_workspace #333333 #222222 #888888
+	#     urgent_workspace   #2f343a #900000 #ffffff
+    # }
+    font pango: TerminessTTF Nerd Font Mono 13
     # font pango: IBM 3270 12,FontAwesome 12
     # font pango: Anonymous Pro 12
     # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
