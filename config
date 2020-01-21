@@ -221,18 +221,20 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
 # screenshot {{{2
-bindsym $mod+Shift+s exec scrot -s -e 'mv $f ~/Pictures/screenshots/'
-set $screenshot_mode selected(S) current screen(P) all screen(A)
-bindsym $mod+p mode "$screenshot_mode"
-mode "$screenshot_mode" {
-    # https://wiki.archlinux.org/index.php/i3_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#%E7%BB%91%E5%AE%9A%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8
-    # 像 scrot 这类工具，用普通的按键绑定方式（按下按键后，未松开按键前就立即执行）可能不会正常工作。可以试试绑定时加上 --release 参数，使命令在松开按键之后执行
-    bindsym --release p exec --no-startup-id scrot -u -e 'mv $f ~/Pictures/screenshots/', mode "default"
-    bindsym --release s exec --no-startup-id scrot -s -e 'mv $f ~/Pictures/screenshots/', mode "default"
-    bindsym --release a exec --no-startup-id scrot -e 'mv $f ~/Pictures/screenshots/', mode "default"
-    bindsym Escape mode "default"
-}
+#bindsym $mod+Shift+s exec scrot -s -e 'mv $f ~/Pictures/screenshots/'
+#set $screenshot_mode selected(S) current screen(P) all screen(A)
+#bindsym $mod+p mode "$screenshot_mode"
+#mode "$screenshot_mode" {
+#    # https://wiki.archlinux.org/index.php/i3_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#%E7%BB%91%E5%AE%9A%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8
+#    # 像 scrot 这类工具，用普通的按键绑定方式（按下按键后，未松开按键前就立即执行）可能不会正常工作。可以试试绑定时加上 --release 参数，使命令在松开按键之后执行
+#    bindsym --release p exec --no-startup-id scrot -u -e 'mv $f ~/Pictures/screenshots/', mode "default"
+#    bindsym --release s exec --no-startup-id scrot -s -e 'mv $f ~/Pictures/screenshots/', mode "default"
+#    bindsym --release a exec --no-startup-id scrot -e 'mv $f ~/Pictures/screenshots/', mode "default"
+#    bindsym Escape mode "default"
+#}
+
 # }}}
 
 # system {{{2
@@ -325,10 +327,13 @@ exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 
 # 剪贴板
-exec clipit
+exec --no-startup-id clipit
 
 # utools
 exec --no-startup-id utools
+
+# flameshot 截图工具
+exec --no-startup-id flameshot
 
 # seafile
 exec --no-startup-id seafile-applet
