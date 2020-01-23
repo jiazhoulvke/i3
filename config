@@ -94,7 +94,9 @@ assign [class="Navigator"] $ws2
 # }}}
 
 # keybind {{{1
-# Use Mouse+$mod to drag floating windows to their wanted position
+
+# 调整浮动窗口
+# 按住win不放，用左键可以拖动浮动窗口，用右键可以调整浮动窗口大小
 floating_modifier $mod
 
 # start a terminal
@@ -251,8 +253,9 @@ mode "$system_mode" {
 
 # resize {{{2
 # resize window (you can also use the mouse for that)
-bindsym $mod+r mode "resize"
-mode "resize" {
+set $resize_mode width+(→) width-(←) height+(↓) height-(↑) exit(Esc)
+bindsym $mod+r mode "$resize_mode"
+mode "$resize_mode" {
     # These bindings trigger as soon as you enter the resize mode
 
     bindsym j resize shrink height 10 px or 10 ppt
@@ -293,6 +296,12 @@ mode "$title_mode" {
 
 # 切换触摸板状态
 bindsym $mod+F8 exec ~/.config/i3/scripts/toggle_touchpad.sh
+
+# 调整屏幕亮度
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/scripts/change_brightness.sh down
+bindsym XF86MonBrightnessUp   exec --no-startup-id ~/.config/i3/scripts/change_brightness.sh up
+bindsym $mod+F11 exec --no-startup-id ~/.config/i3/scripts/change_brightness.sh down
+bindsym $mod+F12 exec --no-startup-id ~/.config/i3/scripts/change_brightness.sh up
 
 # gvim
 bindsym $mod+v exec gvim
