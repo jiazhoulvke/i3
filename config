@@ -360,7 +360,7 @@ bar {
 	#     inactive_workspace #333333 #222222 #888888
 	#     urgent_workspace   #2f343a #900000 #ffffff
     # }
-    font pango: TerminessTTF Nerd Font Mono 13
+    font pango: TerminessTTF Nerd Font Mono 14
     # font pango: IBM 3270 12,FontAwesome 12
     # font pango: Anonymous Pro 12
     # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1

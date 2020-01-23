@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# 这里的TouchpadID可以通过xinput list 获取，带有Touchpad的就是触摸板
-TouchpadID=15
+# 这里的"ELAN1010:00 04F3:3012 Touchpad"是我的笔记本上的触摸板型号
+TouchpadID=$(xinput list | grep "ELAN1010:00 04F3:3012 Touchpad" | cut -d"=" -f2 | awk '{print $1}')
 
 status=$(xinput list-props $TouchpadID | grep "Device Enabled" | awk '{print $4}')
 
