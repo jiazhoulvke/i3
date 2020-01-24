@@ -303,6 +303,11 @@ bindsym XF86MonBrightnessUp   exec --no-startup-id ~/.config/i3/scripts/change_b
 bindsym $mod+F11 exec --no-startup-id ~/.config/i3/scripts/change_brightness.sh down
 bindsym $mod+F12 exec --no-startup-id ~/.config/i3/scripts/change_brightness.sh up
 
+# 调整音量大小
+bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/i3/scripts/toggle_volume.sh up
+bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/i3/scripts/toggle_volume.sh down
+bindsym XF86AudioMute exec --no-startup-id ~/.config/i3/scripts/toggle_volume.sh
+
 # gvim
 bindsym $mod+v exec gvim
 
