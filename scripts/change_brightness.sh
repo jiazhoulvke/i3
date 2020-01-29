@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cur_brightness=$(xrandr --current --verbose | grep Brightness | cut -d":" -f2 | grep -o "[^ ]\+\+[]\+\+[]\+*")
+cur_brightness=$(xrandr --current --verbose | grep Brightness | head -n 1 | cut -d":" -f2 | grep -o "[^ ]\+\+[]\+\+[]\+*")
 
 case $1 in
 	"up")
