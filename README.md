@@ -1,7 +1,7 @@
 ## 安装相关软件
 
 ```bash
-sudo apt install i3 i3blocks blueman pcmanfm compton feh volumeicon-alsa lxterminal flameshot
+sudo apt install i3 i3blocks blueman pcmanfm compton feh volumeicon-alsa lxterminal flameshot redshift-gtk
 ```
 
 ## 克隆本配置
