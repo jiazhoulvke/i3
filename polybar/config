@@ -69,6 +69,7 @@ font-1 = "Font Awesome 6 Pro:style=Regular:size=11;3"
 font-2 = "Font Awesome 6 Brands:style=Regular:size=11;3"
 font-3 = "更纱黑体 SC:style=Regular:size=11;3"
 font-4 = "更纱黑体 SC:style=Semibold:size=11;3"
+font-5 = "等距更纱黑体 SC:style=Semibold:size=11;3"
 
 fixed-center = true
 spacing = 0
@@ -79,7 +80,7 @@ module-margin-right = 0
 
 modules-left = left i3 line mpd
 modules-center = title
-modules-right = netspeed cpu memory battery line date
+modules-right = netspeed cpu memory battery line date line fcitx5-status line
 overline-size = 6
 overline-color=${colors.xbs}
 underline-size = 3
@@ -505,5 +506,16 @@ ramp-free-4 = ▅
 ramp-free-5 = ▆
 ramp-free-6 = ▇
 ramp-free-7 = █
+
+[module/fcitx5-status]
+type = custom/script
+exec = ~/.config/i3/polybar/scripts/fcitx5_status.sh
+interval = 1
+
+format = <label>
+format-foreground = #ffffff
+format-background = #ff6600
+format-padding = ${variables.mpadding}
+label = %{T6}%output%%{T-}
 
 ; vim:ft=dosini

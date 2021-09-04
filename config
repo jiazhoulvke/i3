@@ -340,7 +340,7 @@ exec --no-startup-id redshift-gtk
 exec_always --no-startup-id ~/.config/i3/scripts/background.sh
 
 # polybar
-exec_always --no-startup-id ~/.config/i3/polybar/launch.sh
+exec_always --no-startup-id ~/.config/i3/polybar/scripts/launch.sh
 
 # }}}
 # 
