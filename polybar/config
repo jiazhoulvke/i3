@@ -512,6 +512,8 @@ type = custom/script
 exec = ~/.config/i3/polybar/scripts/fcitx5_status.sh
 interval = 1
 
+click-left = dbus-send --session --print-reply=literal --dest=org.fcitx.Fcitx5 /controller org.fcitx.Fcitx.Controller1.Toggle
+
 format = <label>
 format-foreground = #ffffff
 format-background = #ff6600
