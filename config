@@ -305,8 +305,8 @@ bindsym $mod+Shift+v exec lxterminal -t I3_FLOAT_WINDOW -e "nvim -c 'let g:start
 exec --no-startup-id sh ~/.config/i3/scripts/autostart.sh
 
 # gnome密钥环
-exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
-#exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,gpg,pkcs11
+# exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
+exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,gpg,pkcs11
 # i3下google-chrome必须增加--password-store=gnome才能保存密码
 
 # 透明
@@ -322,7 +322,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 
 # 剪贴板
-exec --no-startup-id clipit
+# exec --no-startup-id clipit
 
 # utools
 exec --no-startup-id utools
