@@ -215,7 +215,7 @@ bindsym $mod+Shift+s exec --no-startup-id "flameshot gui"
 set $system_mode Lock(L) Exit(E) Reboot(R) Shutdown(S) Cancel(Esc)
 bindsym $mod+semicolon mode "$system_mode"
 mode "$system_mode" {
-    bindsym l exec --no-startup-id i3lock -t -i ~/.config/i3/lock.png, mode "default"
+    bindsym l exec --no-startup-id i3lock -t -i ~/.config/i3/assets/images/lock.png, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym s exec --no-startup-id systemctl poweroff, mode "default"
