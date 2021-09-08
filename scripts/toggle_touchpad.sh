@@ -5,20 +5,20 @@ TouchpadID=$(xinput list | grep "ELAN1010:00 04F3:3012 Touchpad" | cut -d"=" -f2
 
 case $1 in
 	"enable")
-		xinput set-prop $TouchpadID "Device Enabled" 1
+		xinput set-prop "$TouchpadID" "Device Enabled" 1
 		exit
     ;;
 	"disable")
-		xinput set-prop $TouchpadID "Device Enabled" 0
+		xinput set-prop "$TouchpadID" "Device Enabled" 0
 		exit
     ;;
 esac
 
 
-status=$(xinput list-props $TouchpadID | grep "Device Enabled" | awk '{print $4}')
+status=$(xinput list-props "$TouchpadID" | grep "Device Enabled" | awk '{print $4}')
 
-if [ $status == "1" ];then
-	xinput set-prop $TouchpadID "Device Enabled" 0
+if [ "$status" == "1" ];then
+	xinput set-prop "$TouchpadID" "Device Enabled" 0
 else
-	xinput set-prop $TouchpadID "Device Enabled" 1
+	xinput set-prop "$TouchpadID" "Device Enabled" 1
 fi

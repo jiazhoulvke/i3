@@ -13,7 +13,7 @@ case $1 in
     ;;
 esac
 
-if [ $cur_volume == "0" ];then
+if [ "$cur_volume" == "0" ];then
 	amixer sset Master 60%
 else
 	amixer sset Master 0%
