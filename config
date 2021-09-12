@@ -34,8 +34,26 @@ title_align center
 show_marks yes
 
 # 新窗口边框默认样式
-new_window none
-for_window [class="^.*"] border pixel 0
+default_border pixel 3
+for_window [class="^.*"] border pixel 3
+
+# color defines for zenburn styled i3
+set $bg     #2c2c2e
+set $fg     #9f9f9f
+set $hi     #efef8f
+set $ac     #a0afa0
+set $tx     #040404
+set $ia     #8f8f8f
+set $be     #8faf9f
+set $yw     #ccdc90
+set $gn     #88b090
+set $rd     #e89393
+
+# set some nice colors      border     background  text
+client.focused              $ac        $ac         $tx
+client.unfocused            $bg        $bg         $ia
+client.focused_inactive     $bg        $bg         $ac
+client.urgent               $rd        $rd         $tx
 
 # gaps inner <px>
 # gaps outer <px>
@@ -265,7 +283,7 @@ bindsym $mod+a exec --no-startup-id "rofi -show drun"
 bindsym mod1+F2 exec --no-startup-id "rofi -show run"
 bindsym $mod+d exec --no-startup-id "rofi -show run"
 bindsym $mod+s exec --no-startup-id "rofi -show ssh"
-bindsym $mod+p exec --no-startup-id "rofi -show filebrowser"
+bindsym $mod+p exec --no-startup-id "rofi -show file-browser"
 bindsym mod1+Tab exec --no-startup-id "rofi -show window"
 
 # Explorer
@@ -315,8 +333,8 @@ bindsym $mod+F10 exec --no-startup-id ~/.config/i3/scripts/toggle_volume.sh up
 bindsym $mod+v exec gvim
 
 # file explorer
-#bindsym $mod+t exec pcmanfm
-bindsym $mod+t exec nautilus
+bindsym $mod+t exec pcmanfm
+# bindsym $mod+t exec nautilus
 
 # 启动一个浮动并默认进入插入模式的vim,方便用来写一些便笺
 bindsym $mod+Shift+v exec lxterminal -t I3_FLOAT_WINDOW -e "nvim -c 'let g:startify_disable_at_vimenter = 1' -c 'startinsert' -c 'setlocal buftype=nofile' -c 'setlocal bufhidden=hide' -c 'setlocal noswapfile'"
@@ -341,7 +359,7 @@ exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
 exec_always --no-startup-id picom --experimental-backends -b
 
 # 自动平铺
-exec --no-startup-id autotiling
+exec --no-startup-id ~/.local/bin/autotiling
 
 # 声音调节
 exec --no-startup-id volumeicon

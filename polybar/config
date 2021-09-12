@@ -78,8 +78,8 @@ padding-right = 0
 module-margin-left = 0
 module-margin-right = 0 
 
-modules-left = left i3 line mpd
-modules-center = title
+modules-left = left i3 line title
+modules-center = mpd
 modules-right = netspeed cpu memory battery line date line fcitx5-status
 overline-size = 6
 overline-color=${colors.xbs}
