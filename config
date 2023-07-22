@@ -34,8 +34,8 @@ title_align center
 show_marks yes
 
 # 新窗口边框默认样式
-default_border pixel 3
-for_window [class="^.*"] border pixel 3
+default_border pixel 0
+for_window [class="^.*"] border pixel 0
 
 # color defines for zenburn styled i3
 set $bg     #2c2c2e
@@ -64,7 +64,7 @@ client.urgent               $rd        $rd         $tx
 # gaps bottom 10
 # gaps left 10
 # gaps outer 30
-gaps inner 25
+gaps inner 12
 
 smart_gaps on
 # smart_gaps inverse_outer
@@ -82,6 +82,9 @@ for_window [class="Gvim" title="I3_FLOAT_WINDOW"] floating enable
 for_window [class="Lxterminal" title="I3_FLOAT_WINDOW"] floating enable
 for_window [class="Gpicview"] floating enable
 for_window [class="Gnome-calculator"] floating enable
+for_window [class="uTools"] floating enable
+for_window [class="Seafile Client"] floating enable
+for_window [class="QQ"] floating enable
 
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
@@ -121,7 +124,7 @@ assign [class="Navigator"] $ws2
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 bindsym Ctrl+mod1+t exec lxterminal
 #bindsym $mod+Return exec i3-sensible-terminal
 
@@ -188,8 +191,8 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 
-bindsym $mod+Tab workspace next
-bindsym $mod+Shift+Tab workspace prev
+bindsym $mod+bracketleft workspace prev
+bindsym $mod+bracketright workspace next
 
 # switch to last used workspace
 bindsym $mod+comma workspace back_and_forth
@@ -228,7 +231,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-bindsym $mod+Shift+s exec --no-startup-id "flameshot gui"
+# bindsym $mod+Shift+s exec --no-startup-id "flameshot gui"
 
 # system {{{2
 set $system_mode Lock(L) Exit(E) Reboot(R) Shutdown(S) Cancel(Esc)
@@ -296,7 +299,7 @@ bindsym XF86Explorer exec --no-startup-id pcmanfm
 bindsym XF86Search exec --no-startup-id catfish
 
 # Web Browser
-bindsym XF86HomePage exec --no-startup-id google-chrome
+bindsym XF86HomePage exec --no-startup-id google-chrome-stable
 
 # Music Player
 bindsym XF86Tools exec --no-startup-id alacritty -e ncmpcpp
@@ -351,24 +354,28 @@ bindsym $mod+Shift+v exec lxterminal -t I3_FLOAT_WINDOW -e "nvim -c 'let g:start
 exec --no-startup-id sh ~/.config/i3/scripts/autostart.sh
 
 # gnome密钥环
-exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
+#exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
 #exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,gpg,pkcs11
 # i3下google-chrome必须增加--password-store=gnome才能保存密码
 
 # 透明
-exec_always --no-startup-id picom --experimental-backends -b
+#exec_always --no-startup-id picom --experimental-backends -b
+exec_always --no-startup-id picom -b
 
 # 自动平铺
-exec --no-startup-id ~/.local/bin/autotiling
+#exec --no-startup-id ~/.local/bin/autotiling
 
 # 声音调节
-exec --no-startup-id volumeicon
+#exec --no-startup-id volumeicon
 
 # 网络
 exec --no-startup-id nm-applet
 
 # 蓝牙
-exec --no-startup-id blueman-applet
+#exec --no-startup-id blueman-applet
+
+# fcitx5
+exec --no-startup-id fcitx5
 
 # 剪贴板
 # exec --no-startup-id clipit
@@ -377,13 +384,13 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id utools
 
 # flameshot 截图工具
-exec --no-startup-id flameshot
+#exec --no-startup-id flameshot
 
 # seafile
 exec --no-startup-id seafile-applet
 
 # 调节屏幕色温
-exec --no-startup-id redshift-gtk
+#exec --no-startup-id redshift-gtk
 
 # 设置背景图片
 exec_always --no-startup-id ~/.config/i3/scripts/background.sh
@@ -421,5 +428,6 @@ exec_always --no-startup-id ~/.config/i3/polybar/scripts/launch.sh
 #    status_command i3blocks -c ~/.config/i3/i3blocks.conf
 #}
 # }}}
+#}
 
 # vim: fdm=marker
